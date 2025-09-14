@@ -57,7 +57,7 @@ module cpu(
 
 
     assign ld = lda;
-    assign e = lda | add | sub;
+    assign e = (lda | add | sub) & ~nop;
     assign k1 = ~((brz & Z) | (brc & C) | (brn & N) | k0);
     assign k0 = jmp;
     assign we = sta;
